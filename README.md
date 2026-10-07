@@ -17,6 +17,7 @@ Supports:
 - More supports
 - Motivational Quote
 - Quick Note taking
+- Random LeetCode Question
 
 ## Installation
 
