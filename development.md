@@ -9,6 +9,22 @@ Optional parameters:
 - maximum depth of the tree
 - to show all files or to condense it
 
+Example:
+```
+studev
+├── src/
+│   └── studev/
+│       ├── commands/
+│       │   ├── explain.py
+│       │   └── ls.py
+│       ├── __init__.py
+│       ├── __main__.py
+│       └── cli.py
+├── LICENSE
+├── pyproject.toml
+└── README.md
+```
+
 ### `studev explain`
 This should explain the nuances of the native version of a command. By default it is previous command's native version.
 Optional parameters:
