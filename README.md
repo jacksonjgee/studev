@@ -6,10 +6,15 @@ Friendlier versions of the terminal commands you already use, that teach you the
 
 ## Why
 
-A friendlier and more powerful version of native commands. Aimed for CS students (non-vibecoders specifically). Gives the native equivalent of studev commands. Has a built-in `explain` feature that will explain the nuances of native commands. 
+A friendlier and more powerful version of commands that CS students (non-vibecoders specifically) may use. Gives the native equivalent of studev commands. Has a built-in `explain` feature that will explain the nuances of each native command commands. 
+
+Supports:
+- native commands
+- git
 
 ## Future ideas
 
+- More supports
 - Motivational Quote
 - Quick Note taking
 
