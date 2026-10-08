@@ -1,7 +1,7 @@
 import argparse
 from importlib.metadata import metadata, version
 
-from studev.commands import list_problems, new, show, test, add, remove, solution
+from studev.commands import list_problems, new, show, test, add, remove, solution, submit
 
 
 def build_parser():
@@ -15,8 +15,8 @@ def build_parser():
     # studev show <problem name>
     show_parser = subparsers.add_parser("show", help="show a problem's description")
     
-    # studev test two-sum <your_solution.py>
-    test_parser = subparsers.add_parser("test", help="test your solution")
+    # studev test <problem name> <your_solution>
+    test_parser = subparsers.add_parser("test", help="Unoffical testing of solution, fast against sample data")
 
     # studev new <problem name>
     new_parser = subparsers.add_parser("new", help="creates an problem template to fill out externally")
@@ -28,7 +28,10 @@ def build_parser():
     remove_parser = subparsers.add_parser("remove", help="removes a user-created problem") 
 
     # studev solution <problem name>
-    solution = subparsers.add_parser("solution", help="Gives a solution statement for a problem") 
+    solution_parser = subparsers.add_parser("solution", help="Gives a solution statement for a problem") 
+
+    # studev submit <problem name> <your_solution>
+    submit_parser = subparsers.add_parser("submit", help="Official submittion of solution, tests against all test cases.") 
 
     return parser
     
@@ -45,6 +48,8 @@ def main():
         remove.run(args)
     elif args.command == "test":
         test.run(args)
+    elif args.command == "submit":
+        submit.run(args)
     elif args.command == "new":
         new.run(args)
     elif args.command == "add":

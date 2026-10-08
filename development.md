@@ -13,7 +13,10 @@ Displays the specified problem's statement as Markdown in the terminal, using th
 
 `studev test <problem name> <your solution>`
 
-Tests your solution's code against the specified problem to check its correctness.
+Unofficially tests your solution's code against sample data of a specified problem to check its correctness.
+
+`studev submit <problem name> <your solution>`
+Official attempt at a question that gets tested against all secret test cases for correctness.
 
 `studev new <problem name>`
 
@@ -55,15 +58,23 @@ meta.json
 └── solves         ← number of times all tests passed
 ```
 
-## Possible Useful Libraries
+## Useful Libraries
 - `argparse`: commands and flags
 - `pathlib`: walking folders and working with file paths
 - `subprocess`: running the user's solution and capturing its output
 - `json`: reading and writing problem metadata (`meta.json`)
 - `shutil`: copying and removing problem folders for `add` and `remove`
 
-- `rich`: colours, bold text, tables and nice formatting in the terminal
 - `pytest`: for testing your code
+- `blessed`, `textual`, `rich`: Python TUI package
 
-## New Ideas
-Sample vs official tests: `test` runs only the sample tests (fast, visible), and a separate `submit` runs the full hidden set and is used to officialy submit a solution as an attempt. This stops people hard-coding answers.
+## Future Ideas
+
+- **Playlists:** group problems into named lists, e.g. `studev list --difficulty easy --save ps`, then `studev show --random --playlist ps`.
+- **Review mode:** `studev review` brings back previously solved problems after a few days or weeks (spaced repetition).
+- **Exam mode:** `studev exam --playlist ps --count 3 --time 60` gives a timed set of problems with a score at the end.
+- **Problem packs:** share problem sets as a zip or folder, e.g. `studev import pack.zip`.
+- **Speed check:** run a solution on growing input sizes to estimate its time complexity.
+- **Custom input:** `studev test two-sum sol.py --input my_case.txt` runs your solution on your own input.
+- **Attempt history:** keep every submitted version of a solution to compare progress.
+- **Problem notes:** `studev note two-sum` opens a notes file attached to the problem.
