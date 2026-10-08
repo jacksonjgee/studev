@@ -1,5 +1,0 @@
-{
-  "title": "Longest Unique Substring",
-  "difficulty": "medium",
-  "topics": ["strings", "sliding window", "hash map"]
-}
