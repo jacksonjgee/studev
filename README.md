@@ -1,23 +1,10 @@
 # studev
 
-Friendlier versions of the terminal commands you already use, that teach you the real ones as you go.
+Offline coding practice and terminal training for students. No setup, any language.
 
 > 🚧 Early development. Not ready to use yet.
 
-## Why
-
-A friendlier and more powerful version of commands that CS students (non-vibecoders specifically) may use. Gives the native equivalent of studev commands. Has a built-in `explain` feature that will explain the nuances of each native command commands. 
-
-Supports:
-- native commands
-- git
-
-## Future ideas
-
-- More supports
-- Motivational Quote
-- Quick Note taking
-- Random LeetCode Question
+studev is an offline practice tool for CS students that runs entirely in the terminal. A single `pip install` gives you a set of coding problems you can solve in any language, with no account, no Docker and no internet needed. When a test fails, studev doesn't just say "Wrong Answer". It shows the input, the expected output and your output side by side, and points out common mistakes, so every failed test teaches you something. Alongside the coding problems, studev trains the other skill students are rarely taught: using the terminal itself. Puzzle-style challenges teach native commands like `grep`, `find` and pipes by having you use them to solve a mystery.
 
 ## Installation
 
