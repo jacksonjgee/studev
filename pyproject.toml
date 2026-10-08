@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "studev"
 version = "0.1.0"
-description = "command-line tool for students in CS"
+description="Offline coding practice for students. No setup, no account, no internet."
 requires-python = ">=3.9"
 dependencies = ["rich"]
 

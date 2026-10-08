@@ -29,13 +29,14 @@ Removes a problem from the user's problem set. Only user-added problems can be r
 
 `studev solution <problem name>`
 
-Gives solution statement for a given problem. However the solution is description and not in any specific coding language, therefore inplementation of your own solution is still required to solve the problem.
+Gives solution statement for a given problem. However the solution is just a description, not in any specific coding language, therefore inplementation of your own solution is still required to solve the problem.
 
 ## Problem Template
 Each problem will have the following format:
 ```
 problem_name/
 ├── problem.md     ← problem statement
+├── solution.md    ← problem's solution explanation
 ├── meta.json      ← meta data
 └── data/
     ├── 1.in       ← inputs
@@ -63,3 +64,6 @@ meta.json
 
 - `rich`: colours, bold text, tables and nice formatting in the terminal
 - `pytest`: for testing your code
+
+## New Ideas
+Sample vs official tests: `test` runs only the sample tests (fast, visible), and a separate `submit` runs the full hidden set and is used to officialy submit a solution as an attempt. This stops people hard-coding answers.

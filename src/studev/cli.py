@@ -1,9 +1,12 @@
 import argparse
+from importlib.metadata import metadata, version
 
 from studev.commands import list_problems, new, show, test, add, remove, solution
 
+
 def build_parser():
-    parser = argparse.ArgumentParser(description="command-line tool for students in CS")
+    parser = argparse.ArgumentParser(description=metadata("studev")["Summary"])
+    parser.add_argument("--version", action="version", version=f"studev {version('studev')}")
     subparsers = parser.add_subparsers(dest="command")
 
     # studev list
@@ -34,19 +37,19 @@ def main():
     parser = build_parser()
     args = parser.parse_args()
 
-    if args == "list":
+    if args.command == "list":
         list_problems.run(args)
-    elif args == "show":
+    elif args.command == "show":
         show.run(args)
-    elif args == "remove":
+    elif args.command == "remove":
         remove.run(args)
-    elif args == "test":
+    elif args.command == "test":
         test.run(args)
-    elif args == "new":
+    elif args.command == "new":
         new.run(args)
-    elif args == "add":
+    elif args.command == "add":
         add.run(args)
-    elif args == "solution":
+    elif args.command == "solution":
         solution.run(args)
     else:
         parser.print_help()
