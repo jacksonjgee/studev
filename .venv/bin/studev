@@ -1,4 +1,4 @@
-#!/Users/jacksongee/Documents/Side_Projects/studev/.venv/bin/python3
+#!/Users/jacksongee/Documents/Side_Projects/studev/.venv/bin/python
 import sys
 from studev.cli import main
 if __name__ == '__main__':

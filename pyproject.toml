@@ -7,6 +7,7 @@ name = "studev"
 version = "0.1.0"
 description = "command-line tool for students in CS"
 requires-python = ">=3.9"
+dependencies = ["rich"]
 
 [project.scripts]
 studev = "studev.cli:main"
