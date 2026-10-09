@@ -12,7 +12,7 @@ Shows a full list of all available problems by default. The user can filter the 
 Displays the specified problem's statement as Markdown in the terminal, using the rich library. Instead of a name, the user can pass `--random` to show a random problem, optionally filtered by difficulty, topic, favourites, user-created, etc.
 
 `studev info <problem name>`
-Displays the metadata of a specified problem. The user cna aswell pass `--random` to see the iunformation of a random problem.
+Displays the metadata of a specified problem. The user can aswell pass `--random` to see the iunformation of a random problem.
 
 `studev test <problem name> <your solution>`
 

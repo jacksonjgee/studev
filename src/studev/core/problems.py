@@ -18,17 +18,32 @@ class Problem:
         self.user_created = user_created
         self.path = path
 
-    def description(self) -> str:
-        file = self.path / "problem.md"
-        if not file.is_file():
-            raise StudevError(f"'{self.slug}' has no problem.md")
+    def _read(self, filename, missing_msg):
+        file = self.path / filename
+        if not file.exists():
+            raise StudevError(missing_msg)
         return file.read_text(encoding="utf-8")
 
-    def solution(self) -> str:           # reads solution.md (StudevError if missing)
-        pass
+    def description(self):
+        return self._read("problem.md", f"'{self.slug}' is missing problem.md")
 
-    def test_cases(self, sample_only) -> list:   # [(input, expected), ...] from data/
-        pass
+    def solution(self):
+        return self._read("solution.md", f"'{self.slug}' doesn't have a solution yet")
+
+    def test_counts(self):
+        sample = len(list((self.path / "data" / "sample").glob("*.in")))
+        secret = len(list((self.path / "data" / "secret").glob("*.in")))
+        return sample, secret
+
+    def test_cases(self, sample_only=False):
+        folders = ["sample"] if sample_only else ["sample", "secret"]
+        cases = []
+        for folder in folders:
+            for inp in sorted((self.path / "data" / folder).glob("*.in")):
+                out = inp.with_suffix(".out")
+                if out.exists():
+                    cases.append((f"{folder}/{inp.stem}", inp, out))
+        return cases
 
 
 
@@ -105,3 +120,4 @@ def random_problem(difficulty=None, topic=None) -> Problem:
     if not matches:
         raise StudevError("No problems match those filters.")
     return random.choice(matches)
+
