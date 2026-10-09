@@ -11,6 +11,9 @@ Shows a full list of all available problems by default. The user can filter the 
 
 Displays the specified problem's statement as Markdown in the terminal, using the rich library. Instead of a name, the user can pass `--random` to show a random problem, optionally filtered by difficulty, topic, favourites, user-created, etc.
 
+`studev info <problem name>`
+Displays the metadata of a specified problem. The user cna aswell pass `--random` to see the iunformation of a random problem.
+
 `studev test <problem name> <your solution>`
 
 Unofficially tests your solution's code against sample data of a specified problem to check its correctness.
@@ -22,9 +25,9 @@ Official attempt at a question that gets tested against all secret test cases fo
 
 Generates a problem template with the given name for the user to fill out, in the current working directory by default. The user can specify a different folder to generate the template in.
 
-`studev add <problem folder>`
+`studev add [problem folder]`
 
-Adds a problem to the user's problem set. The problem is only added if it is valid, meaning all necessary fields are filled out and in the correct format. Running `add` again on the same problem updates it.
+Adds a problem to the user's problem set, using the current folder by default. The problem is only added if it is valid, meaning all necessary fields are filled out and in the correct format. Running `add` again on the same problem updates it.
 
 `studev remove <problem name>`
 

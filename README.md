@@ -14,6 +14,7 @@ studev list --difficulty easy        # filter by difficulty
 studev show two-sum                  # read a problem
 studev show --random                 # read a random problem
 studev test two-sum solution.py      # test your solution
+studev submit two-sum solution.py    # Submit your solution
 ```
 
 ### Write your own problems
