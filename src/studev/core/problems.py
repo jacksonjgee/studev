@@ -77,20 +77,19 @@ def load_problem(folder: Path, user_created: bool = False) -> Problem:
         path=folder,
     )
 
-
-def all_problems() -> list[Problem]:
-    """load_problem() on every folder in BUILTIN_DIR and USER_DIR."""
+def all_problems():
     problems = []
-    
-    if BUILTIN_DIR.exists():
-        for folder in BUILTIN_DIR.iterdir():
-            if folder.is_dir() and (folder / "meta.json").exists():
-                problems.append(load_problem(folder, user_created=False))
-    return problems
+
+    for folder in sorted(BUILTIN_DIR.iterdir()):
+        if folder.is_dir() and (folder / "meta.json").exists():
+            problems.append(load_problem(folder))
+
     if USER_DIR.exists():
-        for folder in USER_DIR.iterdir(): 
-            problems.append(load_problem(folder, user_created=True))
-    # return problems
+        for folder in sorted(USER_DIR.iterdir()):
+            if folder.is_dir() and (folder / "meta.json").exists():
+                problems.append(load_problem(folder, user_created=True))
+
+    return problems
 
 def get_problem(name) -> Problem:
     """Find one problem by name. StudevError if it doesn't exist."""

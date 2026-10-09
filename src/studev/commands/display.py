@@ -332,3 +332,42 @@ def print_parser_help(parser):
             examples.add_row(command_text(cmd.strip()), note.strip())
         console.print(section(examples, "Examples"))
     console.print()
+
+def print_added(problem, updated, warnings):
+    action = "Updated" if updated else "Added"
+    body = Group(
+        meta_line(problem),
+        Text(),
+        Text(f"{action} '{problem.slug}' in your problem set.", style="green"),
+        *[Text(f"⚠ {w}", style="yellow") for w in warnings],
+    )
+    console.print()
+    console.print(Panel(body, title=f"[bold green]✓ {problem.title}[/]", title_align="left",
+                        border_style="green", box=box.ROUNDED, padding=(1, 2)))
+    tip("Try it with", f"studev show {problem.slug}")
+
+def print_created(folder):
+    files = Table.grid(padding=(0, 3))
+    files.add_column(style=NAME, no_wrap=True)
+    files.add_column(style=MUTED)
+    files.add_row("problem.md", "what to solve, input/output and an example")
+    files.add_row("meta.json", "title, difficulty (easy/medium/hard) and topics")
+    files.add_row("solution.md", "how to solve it (optional)")
+    files.add_row("data/sample/", "tests shown to the student (1.in → 1.out)")
+    files.add_row("data/secret/", "hidden tests for submit")
+
+    location = str(folder).replace(str(Path.home()), "~")
+    console.print()
+    console.print(Panel(files, title=f"[bold green]✓ Created {folder.name}[/]",
+                        subtitle=Text(location, style=MUTED), subtitle_align="right",
+                        title_align="left", border_style="green", box=box.ROUNDED, padding=(1, 2)))
+    tip("Fill it in, then run", f"studev add {location}")
+
+def print_removed(problem):
+    console.print()
+    console.print(Panel(
+        Text(f"Removed '{problem.slug}' from your problem set.", style=MUTED),
+        title=f"[bold red]✗ {problem.title}[/]", title_align="left",
+        border_style="red", box=box.ROUNDED, padding=(1, 2), expand=False,
+    ))
+    tip("Add it back any time with", f"studev add <folder>")
